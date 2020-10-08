@@ -157,7 +157,7 @@ if [  -z "alm" ]; then
     warn "      configuration not found"
 else
     alm2=$(docker inspect kube-apiserver | jq -e '.[0].Args[] | match("--audit-log-maxage=\\d+").string' | sed -e 's/^"//' -e 's/"$//' | cut -d = -f2)
-    if [ "$alm" -ge 30 ]; then
+    if [ "$alm2" -ge 30 ]; then
         pass "$check_1_2_23"
     else
         warn "$check_1_2_23"
@@ -171,7 +171,7 @@ if [ -z "$almm" ]; then
     warn "      configuration not found"
 else
     almm2=$(docker inspect kube-apiserver | jq -e '.[0].Args[] | match("--audit-log-maxbackup=\\d+").string' | sed -e 's/^"//' -e 's/"$//' | cut -d = -f2)
-    if [ "$almm" -ge 10 ]; then
+    if [ "$almm2" -ge 10 ]; then
         pass "$check_1_2_24"
     else
         warn "$check_1_2_24"
@@ -185,7 +185,7 @@ if [ -z "$almmm" ]; then
     warn "$check_1_2_25"
 else
     almmm2=$(docker inspect kube-apiserver | jq -e '.[0].Args[] | match("--audit-log-maxsize=\\d+").string' | sed -e 's/^"//' -e 's/"$//' | cut -d = -f2)
-    if [ "almmm" -ge 100 ]; then
+    if [ "almmm2" -ge 100 ]; then
         pass "$check_1_2_25"
     else
         warn "$check_1_2_25"

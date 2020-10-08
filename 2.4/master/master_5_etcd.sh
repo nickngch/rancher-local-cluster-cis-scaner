@@ -14,13 +14,15 @@ fi
 check_2_2="2.2  - Ensure that the --client-cert-auth argument is set to true (Scored)"
 cca=$(docker inspect etcd | jq -e '.[0].Args[] | match("--client-cert-auth(=true)*").string')
 if [ -z "$cca" ]; then
-    warn "$check_2_2"]
+    warn "$check_2_2"
 else
     cca1=$(docker inspect etcd | jq -e '.[0].Args[] | match("--client-cert-auth(=true)*").string' | sed -e 's/^"//' -e 's/"$//' | cut -d = -f2)
+    echo $cca1
     if [ "$cca1" = "true" ]; then
         pass "$check_2_2"
     else
         warn "$check_2_2"
+    fi
 fi
 
 check_2_3="2.3  - Ensure that the --auto-tls argument is not set to true (Scored)"
@@ -33,6 +35,7 @@ else
         pass "$check_2_3"
     else
         warn "$check_2_3"
+    fi
 fi
 
 check_2_4="2.4  - Ensure that the --peer-cert-file and --peer-key-file arguments are set as appropriate (Scored)"
