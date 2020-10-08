@@ -1,1 +1,1 @@
-# rancher-local-cluster-cis-scaner
+# rancher-local-cluster-cis-scanner
