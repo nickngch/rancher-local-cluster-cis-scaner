@@ -50,7 +50,7 @@ fi
 
 check_2_5="2.5  - Ensure that the --peer-client-cert-auth argument is set to true (Scored)"
 pcc=$(docker inspect etcd | jq -e '.[0].Args[] | match("--peer-client-cert-auth(=true)*").string')
-if [ "$pcc" = \"--peer-client-cert-auth\" ]; then
+if [ "$pcc" = \"--peer-client-cert-auth=true\" ]; then
     pass "$check_2_5"
 else
     warn "$check_2_5"

@@ -62,7 +62,7 @@ fi
 
 check_4_2_10="4.2.10  - Ensure that the --tls-cert-file and --tls-private-key-file arguments are set as appropriate"
 na "$check_4_2_10"
-na "RKE doesn’t require or maintain a configuration file for the kubelet service. All configuration is passed in as arguments at container run time."
+na "    RKE doesn’t require or maintain a configuration file for the kubelet service. All configuration is passed in as arguments at container run time."
 
 check_4_2_11="4.2.11  Ensure that the --rotate-certificates argument is not set to false"
 rotate=$(docker inspect kubelet | jq -e '.[0].Args[] | match("--rotate-certificates=true").string')
@@ -74,8 +74,8 @@ else
 fi
 
 check_4_2_12="4.2.12 Ensure that the RotateKubeletServerCertificate argument is set to true"
-rotetekubelet=$(docker inspect kubelet | jq -e '.[0].Args[] | match("--feature-gates=.*(RotateKubeletServerCertificate=true).*").captures[].string')
-if [ "$rotatekubelet" = "RotateKubeletServerCertificate=true" ]; then
+rotatekubelet=$(docker inspect kubelet | jq -e '.[0].Args[] | match("--feature-gates=.*(RotateKubeletServerCertificate=true).*").captures[].string')
+if [ "$rotatekubelet" = \"RotateKubeletServerCertificate=true\" ]; then
   pass "$check_4_2_12"
 else
   warn "$check_4_2_12"

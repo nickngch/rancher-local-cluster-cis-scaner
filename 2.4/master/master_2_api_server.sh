@@ -144,7 +144,7 @@ fi
 
 check_1_2_22="1.2.22  - Ensure that the --audit-log-path argument is set as appropriate"
 alp=$(docker inspect kube-apiserver | jq -e '.[0].Args[] | match("--audit-log-path=/var/log/kube-audit/audit-log.json").string')
-if [ "alp" = \"--audit-log-path=/var/log/kube-audit/audit-log.json\" ]; then
+if [ "$alp" = \"--audit-log-path=/var/log/kube-audit/audit-log.json\" ]; then
     pass "$check_1_2_22"
 else
     warn "$check_1_2_22"
