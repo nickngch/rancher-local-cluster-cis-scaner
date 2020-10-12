@@ -17,7 +17,6 @@ if [ -z "$cca" ]; then
     warn "$check_2_2"
 else
     cca1=$(docker inspect etcd | jq -e '.[0].Args[] | match("--client-cert-auth(=true)*").string' | sed -e 's/^"//' -e 's/"$//' | cut -d = -f2)
-    echo $cca1
     if [ "$cca1" = "true" ]; then
         pass "$check_2_2"
     else
