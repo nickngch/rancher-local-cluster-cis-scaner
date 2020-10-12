@@ -2,11 +2,11 @@ info "4.1 - Worker Node Configuration Files"
 
 check_4_1_1="4.1.1  - Ensure that the kubelet service file permissions are set to 644 or more restrictive"
 na "$check_4_1_1"
-na "RKE doesn’t require or maintain a configuration file for kubelet. All configuration is passed in as arguments at container run time."
+na "    RKE doesn’t require or maintain a configuration file for kubelet. All configuration is passed in as arguments at container run time."
 
 check_4_1_2="4.1.2  - Ensure that the kubelet service file ownership is set to root:root"
 na "$check_4_1_2"
-na "RKE doesn’t require or maintain a configuration file for kubelet. All configuration is passed in as arguments at container run time."
+na "    RKE doesn’t require or maintain a configuration file for kubelet. All configuration is passed in as arguments at container run time."
 
 check_4_1_3="4.1.3  - Ensure that the proxy kubeconfig file permissions are set to 644 or more restrictive"
 file3=(/etc/kubernetes/ssl/kubecfg-kube-proxy.yaml)
@@ -84,11 +84,11 @@ check_4_1_8="4.1.8  - Ensure that the client certificate authorities file owners
 
 check_4_1_9="4.1.9 - Ensure that the kubelet configuration file has permissions set to 644 or more restrictive"
 na "$check_4_1_9"
-na "RKE doesn’t require or maintain a configuration file for kubelet. All configuration is passed in as arguments at container run time."
+na "    RKE doesn’t require or maintain a configuration file for kubelet. All configuration is passed in as arguments at container run time."
 
 check_4_1_10="4.1.10 - Ensure that the kubelet configuration file ownership is set to root:root"
 na "$check_4_1_10"
-na "RKE doesn’t require or maintain a configuration file for kubelet. All configuration is passed in as arguments at container run time."
+na "    RKE doesn’t require or maintain a configuration file for kubelet. All configuration is passed in as arguments at container run time."
 
 
 
