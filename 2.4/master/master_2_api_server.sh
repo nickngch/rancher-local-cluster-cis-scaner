@@ -185,7 +185,7 @@ if [ -z "$almmm" ]; then
     warn "$check_1_2_25"
 else
     almmm2=$(docker inspect kube-apiserver | jq -e '.[0].Args[] | match("--audit-log-maxsize=\\d+").string' | sed -e 's/^"//' -e 's/"$//' | cut -d = -f2)
-    if [ "almmm2" -ge 100 ]; then
+    if [ "$almmm2" -ge 100 ]; then
         pass "$check_1_2_25"
     else
         warn "$check_1_2_25"
