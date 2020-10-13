@@ -14,11 +14,13 @@ Since CIS Scanner on Rancher v2.4 doesn't support scanning on local cluster, thi
 
 ## Usage
 
-- sudo bash ./all.sh 2.4 #for all roles node(Control Plane + etcd + worker)
+- `sudo bash ./all.sh 2.4` #for all roles node(Control Plane + etcd + worker), this should be the default command to execute the script
 
-- sudo bash ./master.sh 2.4 #for master node
 
-- sudo bash ./worker.sh 2.4 #for worker node
+### Experimental
+- `sudo bash ./master.sh 2.4` #for master node
+
+- `sudo bash ./worker.sh 2.4` #for worker node
 
 ## Modified from
 - https://github.com/neuvector/kubernetes-cis-benchmark
