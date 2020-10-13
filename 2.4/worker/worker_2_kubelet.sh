@@ -65,12 +65,12 @@ na "$check_4_2_10"
 na "    RKE doesn’t require or maintain a configuration file for the kubelet service. All configuration is passed in as arguments at container run time."
 
 check_4_2_11="4.2.11  Ensure that the --rotate-certificates argument is not set to false"
-rotate=$(docker inspect kubelet | jq -e '.[0].Args[] | match("--rotate-certificates=true").string')
+rotate=$(docker inspect kubelet | jq -e '.[0].Args[] | match("--rotate-certificates=false").string')
 if [ -z $rotate ]; then
-  warn "$check_4_2_11"
-  warn "       * --rotate-certificates not found"
-else
   pass "$check_4_2_11"
+else
+  warn "$check_4_2_11"
+  warn "       * $rotate"
 fi
 
 check_4_2_12="4.2.12 Ensure that the RotateKubeletServerCertificate argument is set to true"
