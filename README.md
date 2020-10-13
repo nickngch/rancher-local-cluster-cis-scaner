@@ -23,5 +23,8 @@ Since CIS Scanner on Rancher v2.4 doesn't support scanning on the local cluster,
 
 - `sudo bash ./worker.sh 2.4` #for worker node
 
+## Limitation
+- Section `5 Kubernetes Policies` require manual inspection
+
 ## Modified from
 - https://github.com/neuvector/kubernetes-cis-benchmark
