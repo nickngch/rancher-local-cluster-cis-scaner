@@ -2,10 +2,10 @@
 
 The script is created based on [Rancher security benchmark 2.4](https://rancher.com/docs/rancher/v2.x/en/security/rancher-2.4/benchmark-2.4/).
 
-Since CIS Scanner on Rancher v2.4 doesn't support scanning on local cluster, this script is to help user to automating the task.
+Since CIS Scanner on Rancher v2.4 doesn't support scanning on the local cluster, this script helps the user automate the task.
 
 ## Pre-requisites:
-- jq (This probably the only one require to install manually)
+- jq (This probably the only one required to install manually)
 - grep
 - awk
 - sed
