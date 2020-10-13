@@ -67,7 +67,6 @@ check_4_1_7="4.1.7  - Ensure that the certificate authorities file permissions a
 file4=(/etc/kubernetes/ssl/kube-ca.pem)
   if [ "$(stat -c %a $file4)" -eq 644 -o "$(stat -c %a $file4)" -eq 600 -o "$(stat -c %a $file4)" -eq 400 ]; then
     pass "$check_4_1_7"
-    pass "       * client-ca-file: $file4"
   else
     warn "$check_4_1_7"
     warn "     * Wrong permissions for $file4"
@@ -76,7 +75,6 @@ file4=(/etc/kubernetes/ssl/kube-ca.pem)
 check_4_1_8="4.1.8  - Ensure that the client certificate authorities file ownership is set to root:root"
   if [ "$(stat -c %u%g $file4)" -eq 00 ]; then
     pass "$check_4_1_8"
-    pass "       * client-ca-file: $file4"
   else
     warn "$check_4_1_8"
     warn "     * Wrong ownership for $file4"

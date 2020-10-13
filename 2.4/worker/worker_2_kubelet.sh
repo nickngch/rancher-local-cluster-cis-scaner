@@ -68,7 +68,7 @@ check_4_2_11="4.2.11  Ensure that the --rotate-certificates argument is not set 
 rotate=$(docker inspect kubelet | jq -e '.[0].Args[] | match("--rotate-certificates=true").string')
 if [ -z $rotate ]; then
   warn "$check_4_2_11"
-  warn "       * rotateCertificates: $rotate"
+  warn "       * --rotate-certificates not found"
 else
   pass "$check_4_2_11"
 fi
