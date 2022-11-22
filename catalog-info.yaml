@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: rancher-local-cluster-cis-scanner
+  description: Rancher local cluster CIS scanner
+spec:
+  type: service
+  lifecycle: experiment
+  owner: Nick
